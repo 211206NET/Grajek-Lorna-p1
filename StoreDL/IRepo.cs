@@ -4,24 +4,28 @@ namespace StoreDL;
 
 public interface IRepo
 {
-    List<Storefront> GetAllStores();
     List<Customer> GetAllCustomers();
+    List<Customer> SearchCustomer(string username, string password);
     void AddCustomer(Customer newCustomer);
-    void AddLineItem(LineItem newLI, int orderID);
-    List<Product> GetAllEarthProducts();
-    List<Product> GetAllCentauriProducts();
+    Customer GetCustomerById(int custId);
+    //---------------------------------------------------------------------------------------------------------------------------------
+    List<Storefront> GetAllStores();
     void AddStore(Storefront storetoAdd);
-    void AddOrder(Order orderToAdd);
-    List<Order> GetAllOrders(int CID);
-    int GetCustomerID(string username);
-    List<Inventory> GetEarthInventory();
+    Storefront GetStorefrontById(int storeID);
+    //-----------------------------------------------------------------------------------
+    List<Product> GetAllProductsByStoreId(int storeId);
+    int GetProductID(string productname);
     void AddProduct(Product productToAdd);
     void RemoveProduct(int prodID);
+    void RestockCentauriInventory(int prodID, int quantity);
+    void AddProductToInventory(int prodID, Inventory inventToAdd);
     void RestockEarthInventory(int prodID, int quantity);
+    List<Inventory> GetInventoryByStoreId(int storeId);
+    List<Inventory> GetAllInventories();
+    //---------------------------------------------------------------------------------
+    void AddLineItem(LineItem newLI, int orderID);
+    void AddOrder(Order orderToAdd);
+    List<Order> GetAllOrders(int CID);
     List<Order> GetAllEarthOrders();
     List<Order> GetAllCentauriOrders();
-    List<Inventory> GetCentauriInventory();
-    void RestockCentauriInventory(int prodID, int quantity);
-    int GetProductID(string productname);
-    void AddProductToInventory(int prodID, Inventory inventToAdd);
 }

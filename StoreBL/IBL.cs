@@ -2,25 +2,29 @@ namespace StoreBL;
 
 public interface IBL
 {
-    List<Storefront> GetAllStores();
     List<Customer> GetAllCustomers();
+    List<Customer> SearchCustomer(string username, string password);
     void AddCustomer(Customer newCustomer);
-    List<Product> GetAllEarthProducts();
-    List<Product> GetAllCentauriProducts();
-    void AddLineItem(LineItem newLI, int orderID);
+    Customer GetCustomerById(int custId);
+    //-----------------------------------------------------------------------------------------------------------------
+    List<Storefront> GetAllStores();
+    Storefront GetStorefrontById(int storeID);
     void AddStore(Storefront storetoAdd);
-    void AddOrder(Order orderToAdd);
-    List<Order> GetAllOrders(int CID);
-    int GetCustomerID(string username);
-    List<Inventory> GetEarthInventory();
+    //-----------------------------------------------------------------------------------------------------------------
+    List<Product> GetAllProductsByStoreId(int storeId);
     void AddProduct(Product productToAdd);
     void RemoveProduct(int prodID);
+    List<Inventory> GetInventoryByStoreId(int storeId);
     void RestockEarthInventory(int prodID, int quantity);
-    List<Order> GetAllEarthOrders();
-    List<Order> GetAllCentauriOrders();
-    List<Inventory> GetCentauriInventory();
     void RestockCentauriInventory(int prodID, int quantity);
     int GetProductID(string productname);
     void AddProductToInventory(int prodID, Inventory inventToAdd);
+    List<Inventory> GetAllInventories();
+    //-------------------------------------------------------------------------------------------
+    void AddLineItem(LineItem newLI, int orderID);
+    void AddOrder(Order orderToAdd);
+    List<Order> GetAllOrders(int CID);
+    List<Order> GetAllEarthOrders();
+    List<Order> GetAllCentauriOrders();
 
 }

@@ -8,11 +8,14 @@ public class UFOBL : IBL
         _dl = repo;
     }
 
-    public List<Storefront> GetAllStores()
+    public List<Customer> SearchCustomer(string username, string password)
     {
-        return _dl.GetAllStores();
+        return _dl.SearchCustomer(username, password);
     }
-
+    public Customer GetCustomerById(int custId)
+    {
+        return _dl.GetCustomerById(custId);
+    }
     public List<Customer> GetAllCustomers()
     {
         return _dl.GetAllCustomers();
@@ -22,13 +25,9 @@ public class UFOBL : IBL
     {
         _dl.AddCustomer(newCustomer);
     }
-    public List<Product> GetAllEarthProducts()
+    public List<Storefront> GetAllStores()
     {
-        return _dl.GetAllEarthProducts();
-    }
-    public List<Product> GetAllCentauriProducts()
-    {
-        return _dl.GetAllCentauriProducts();
+        return _dl.GetAllStores();
     }
     public void AddLineItem(LineItem newLI, int orderID)
     {
@@ -45,14 +44,6 @@ public class UFOBL : IBL
     public List<Order> GetAllOrders(int CID)
     {
         return _dl.GetAllOrders(CID);
-    }
-    public int GetCustomerID(string username)
-    {
-        return _dl.GetCustomerID(username);
-    }
-    public List<Inventory> GetEarthInventory()
-    {
-        return _dl.GetEarthInventory();
     }
     public void AddProduct(Product productToAdd)
     {
@@ -74,10 +65,6 @@ public class UFOBL : IBL
     {
         return _dl.GetAllCentauriOrders();
     }
-    public List<Inventory> GetCentauriInventory()
-    {
-        return _dl.GetCentauriInventory();
-    }
     public void RestockCentauriInventory(int prodID, int quantity)
     {
         _dl.RestockCentauriInventory(prodID, quantity);
@@ -89,6 +76,23 @@ public class UFOBL : IBL
     public void AddProductToInventory(int prodID, Inventory inventToAdd)
     {
         _dl.AddProductToInventory(prodID, inventToAdd);
+    }
+
+    public Storefront GetStorefrontById(int storeID)
+    {
+        return _dl.GetStorefrontById((int)storeID);
+    }
+    public List<Product> GetAllProductsByStoreId(int storeId)
+    {
+        return _dl.GetAllProductsByStoreId(storeId);
+    }
+    public List<Inventory> GetInventoryByStoreId(int storeId)
+    {
+        return _dl.GetInventoryByStoreId(storeId);
+    }
+    public List<Inventory> GetAllInventories()
+    {
+        return _dl.GetAllInventories();
     }
 
 }
