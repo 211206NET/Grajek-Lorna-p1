@@ -17,10 +17,11 @@ public interface IRepo
     void AddProduct(Product productToAdd);
     void RemoveProduct(int prodID);
     void RestockCentauriInventory(int prodID, int quantity);
-    void AddProductToInventory(int prodID, Inventory inventToAdd);
+    void AddProductToInventory(int prodId, int storeId, int quantity);
     void RestockEarthInventory(int prodID, int quantity);
     List<Inventory> GetInventoryByStoreId(int storeId);
     List<Inventory> GetAllInventories();
+    int GetProductIdByName(string name);
     //---------------------------------------------------------------------------------
     void AddLineItem(LineItem newLI, int orderID);
     void AddOrder(Order orderToAdd);

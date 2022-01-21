@@ -72,7 +72,7 @@ public class DBRepo : IRepo
                     while (reader.Read())
                     {
                         Customer cust = new Customer();
-                        cust.customerID = reader.GetInt32(0);
+                        cust.CID = reader.GetInt32(0);
                         cust.UserName = reader.GetString(1);
                         cust.Password = reader.GetString(2);
 
@@ -96,7 +96,7 @@ public class DBRepo : IRepo
         Customer customer = new Customer();
         if (reader.Read())
         {
-            customer.customerID = reader.GetInt32(0);
+            customer.CID = reader.GetInt32(0);
             customer.UserName = reader.GetString(1);
             customer.Password = reader.GetString(2);
         }
@@ -194,6 +194,31 @@ public class DBRepo : IRepo
         }
         return allProducts;
     }
+    public int GetProductIdByName(string name)
+    {
+        int productId = 0;
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            connection.Open();
+            string query = $"SELECT * FROM Product WHERE Name = {name}";
+            using(SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                using(SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Product product = new Product();
+                        product.ProductID = reader.GetInt32(0);
+
+                        productId = product.ProductID;
+                    }
+                }
+            }
+            connection.Close();
+        }
+        return productId;
+    }
+
     public List<Inventory> GetInventoryByStoreId(int storeId)
     {
         List<Inventory> allInventory = new List<Inventory>();
@@ -283,22 +308,20 @@ public class DBRepo : IRepo
     /// Adds a new product to the database
     /// </summary>
     /// <param name="productToAdd">the new product you want to add</param>
-    public void AddProductToInventory(int prodID, Inventory inventToAdd)
+    public void AddProductToInventory(int prodId, int storeId, int quantity)
     {
-        Inventory invent = new Inventory();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             connection.Open();
             string sqlCmd = "INSERT INTO Inventory (StoreId, ProductId, Quantity) VALUES (@p1, @p2, @p3)";
             using(SqlCommand cmd = new SqlCommand(sqlCmd, connection))
             {
-                cmd.Parameters.Add(new SqlParameter("@p1", inventToAdd.StoreId));
-                cmd.Parameters.Add(new SqlParameter("@p2", prodID));
-                cmd.Parameters.Add(new SqlParameter("@p3", inventToAdd.Quantity));
+                cmd.Parameters.Add(new SqlParameter("@p1", storeId));
+                cmd.Parameters.Add(new SqlParameter("@p2", prodId));
+                cmd.Parameters.Add(new SqlParameter("@p3", quantity));
                 cmd.ExecuteNonQuery();
             }
             connection.Close();
-            Log.Information("Inventory added {StoreId}{ProductId}{Quantity}", inventToAdd.StoreId,prodID,inventToAdd.Quantity);
         }
     }
     public void RestockEarthInventory(int prodID, int quantity)

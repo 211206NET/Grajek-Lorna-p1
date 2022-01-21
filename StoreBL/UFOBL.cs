@@ -69,10 +69,6 @@ public class UFOBL : IBL
     {
         _dl.RestockCentauriInventory(prodID, quantity);
     }
-    public void AddProductToInventory(int prodID, Inventory inventToAdd)
-    {
-        _dl.AddProductToInventory(prodID, inventToAdd);
-    }
 
     public Storefront GetStorefrontById(int storeID)
     {
@@ -91,4 +87,12 @@ public class UFOBL : IBL
         return _dl.GetAllInventories();
     }
 
+    public void AddProductToInventory(int prodId, int storeId, int quantity)
+    {
+        _dl.AddProductToInventory(prodId, storeId, quantity);
+    }
+    public int GetProductIdByName(string name)
+    {
+        return _dl.GetProductIdByName(name);
+    }
 }

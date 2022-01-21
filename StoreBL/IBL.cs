@@ -17,8 +17,9 @@ public interface IBL
     List<Inventory> GetInventoryByStoreId(int storeId);
     void RestockEarthInventory(int prodID, int quantity);
     void RestockCentauriInventory(int prodID, int quantity);
-    void AddProductToInventory(int prodID, Inventory inventToAdd);
+    void AddProductToInventory(int prodId, int storeId, int quantity);
     List<Inventory> GetAllInventories();
+    int GetProductIdByName(string name);
     //-------------------------------------------------------------------------------------------
     void AddLineItem(LineItem newLI, int orderID);
     void AddOrder(Order orderToAdd);

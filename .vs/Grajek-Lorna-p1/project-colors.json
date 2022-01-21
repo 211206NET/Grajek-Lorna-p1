@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f64050b0-654e-46af-b99a-0d384c222e20": {
+      "ProjectGuid": "f64050b0-654e-46af-b99a-0d384c222e20",
+      "DisplayName": "WebApplication1",
+      "ColorIndex": 0
+    },
+    "b25dcc03-b00e-4ff7-ade6-2baacbb8de6b": {
+      "ProjectGuid": "b25dcc03-b00e-4ff7-ade6-2baacbb8de6b",
+      "DisplayName": "StoreModels",
+      "ColorIndex": 1
+    },
+    "3961ad4a-4e86-48c7-bb21-4a42f0649abf": {
+      "ProjectGuid": "3961ad4a-4e86-48c7-bb21-4a42f0649abf",
+      "DisplayName": "StoreDL",
+      "ColorIndex": 2
+    },
+    "4e69fb14-21d1-4a50-a2e1-d9a2a0ec9c27": {
+      "ProjectGuid": "4e69fb14-21d1-4a50-a2e1-d9a2a0ec9c27",
+      "DisplayName": "StoreBL",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
