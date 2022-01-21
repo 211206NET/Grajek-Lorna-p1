@@ -16,9 +16,10 @@ public interface IRepo
     List<Product> GetAllProductsByStoreId(int storeId);
     void AddProduct(Product productToAdd);
     void RemoveProduct(int prodID);
-    void RestockCentauriInventory(int prodID, int quantity);
+    void RemoveProductFromInventory(int prodId);
+    List<Product> GetAllProducts();
+    void RestockInventory(int prodId, int quantity, int storeId);
     void AddProductToInventory(int prodId, int storeId, int quantity);
-    void RestockEarthInventory(int prodID, int quantity);
     List<Inventory> GetInventoryByStoreId(int storeId);
     List<Inventory> GetAllInventories();
     int GetProductIdByName(string name);

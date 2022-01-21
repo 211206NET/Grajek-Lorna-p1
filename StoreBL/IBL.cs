@@ -14,12 +14,13 @@ public interface IBL
     List<Product> GetAllProductsByStoreId(int storeId);
     void AddProduct(Product productToAdd);
     void RemoveProduct(int prodID);
+    List<Product> GetAllProducts();
     List<Inventory> GetInventoryByStoreId(int storeId);
-    void RestockEarthInventory(int prodID, int quantity);
-    void RestockCentauriInventory(int prodID, int quantity);
+    void RestockInventory(int prodId, int quantity, int storeId);
     void AddProductToInventory(int prodId, int storeId, int quantity);
     List<Inventory> GetAllInventories();
     int GetProductIdByName(string name);
+    void RemoveProductFromInventory(int prodId);
     //-------------------------------------------------------------------------------------------
     void AddLineItem(LineItem newLI, int orderID);
     void AddOrder(Order orderToAdd);

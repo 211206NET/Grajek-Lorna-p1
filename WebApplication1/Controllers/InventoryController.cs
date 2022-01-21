@@ -41,21 +41,6 @@ namespace WebApplication1.Controllers
             }
         }
 
-        // POST api/<InventoryController>
-        // Add a product, add that product to the inventory
-        [HttpPost]
-        public ActionResult Post([FromBody] Product productToAdd)
-        {
-            if (productToAdd.ProductName != null)
-            {
-                _bl.AddProduct(productToAdd);
-                return Created($"{productToAdd.ProductName} has been added to the product list!", productToAdd);
-            }
-            else
-            {
-                return NoContent();
-            }
-        }
         [HttpPost("{prodId}/{storeId}/{quantity}")]
         public ActionResult Post(int prodId, int storeId, int quantity)
         {
@@ -69,17 +54,23 @@ namespace WebApplication1.Controllers
                 return NoContent();
             }
         }
-
+        //Add exception and validation here
         // PUT api/<InventoryController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
+        [HttpPut("{prodId}/{quantity}/{storeId}")]
+        public void Put(int prodId, int quantity, int storeId)
+        {
+            if(storeId != 0)
+            {
+                _bl.RestockInventory(prodId, quantity, storeId);
+            }
+        }
         
 
         // DELETE api/<InventoryController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _bl.RemoveProduct(id);
+            _bl.RemoveProductFromInventory(id);
         }
     }
 }

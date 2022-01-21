@@ -53,10 +53,6 @@ public class UFOBL : IBL
     {
         _dl.RemoveProduct(prodID);
     }
-    public void RestockEarthInventory(int prodID, int quantity)
-    {
-        _dl.RestockEarthInventory(prodID, quantity);
-    }
     public List<Order> GetAllEarthOrders()
     {
         return _dl.GetAllEarthOrders();
@@ -64,10 +60,6 @@ public class UFOBL : IBL
     public List<Order> GetAllCentauriOrders()
     {
         return _dl.GetAllCentauriOrders();
-    }
-    public void RestockCentauriInventory(int prodID, int quantity)
-    {
-        _dl.RestockCentauriInventory(prodID, quantity);
     }
 
     public Storefront GetStorefrontById(int storeID)
@@ -94,5 +86,18 @@ public class UFOBL : IBL
     public int GetProductIdByName(string name)
     {
         return _dl.GetProductIdByName(name);
+    }
+    public List<Product> GetAllProducts()
+    {
+        return _dl.GetAllProducts();
+    }
+
+    public void RestockInventory(int prodId, int quantity, int storeId)
+    {
+        _dl.RestockInventory(prodId, quantity, storeId);
+    }
+    public void RemoveProductFromInventory(int prodId)
+    {
+        _dl.RemoveProductFromInventory(prodId);
     }
 }

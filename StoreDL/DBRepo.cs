@@ -174,6 +174,33 @@ public class DBRepo : IRepo
     }
 
     //--------------------------------------------------------------------------------------------------------------------------------------
+    public List<Product> GetAllProducts()
+    {
+        List<Product> allProducts = new List<Product>();
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            connection.Open();
+            string queryTxt = "SELECT * FROM Product";
+            using(SqlCommand cmd = new SqlCommand(queryTxt, connection))
+            {
+                using(SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Product product = new Product();
+                        product.ProductID = reader.GetInt32(0);
+                        product.ProductName = reader.GetString(1);
+                        product.Description = reader.GetString(2);
+                        product.Price = reader.GetInt32(3);
+
+                        allProducts.Add(product);
+                    }
+                }
+            }
+            connection.Close();
+        }
+        return allProducts;
+    }
     public List<Product> GetAllProductsByStoreId(int storeId)
     {
         List<Product> allProducts = new List<Product>();
@@ -217,6 +244,53 @@ public class DBRepo : IRepo
             connection.Close();
         }
         return productId;
+    }
+    public void AddProduct(Product productToAdd)
+    {
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            connection.Open();
+            string sqlCmd = "INSERT INTO Product (Name, Description, Price) VALUES (@p1, @p2, @p3)";
+            using(SqlCommand cmd = new SqlCommand(sqlCmd, connection))
+            {
+                cmd.Parameters.Add(new SqlParameter("@p1", productToAdd.ProductName));
+                cmd.Parameters.Add(new SqlParameter("@p2", productToAdd.Description));
+                cmd.Parameters.Add(new SqlParameter("@p3", productToAdd.Price));
+                cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+            Log.Information("Product added {name}{description}{price}", productToAdd.ProductName,productToAdd.Description,productToAdd.Price);
+        }
+    }
+    public void RemoveProduct(int prodID)
+    {
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            connection.Open();
+            string sqlCmd = "DELETE FROM Product WHERE ProductID = @p1";
+            using(SqlCommand cmd = new SqlCommand(sqlCmd, connection))
+            {
+                cmd.Parameters.Add(new SqlParameter("@p1", prodID));
+                
+                cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+    public void RemoveProductFromInventory(int prodId)
+    {
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            connection.Open();
+            string sqlCmd = "DELETE FROM Inventory WHERE ProductId = @p1";
+            using(SqlCommand cmd = new SqlCommand(sqlCmd, connection))
+            {
+                cmd.Parameters.Add(new SqlParameter("@p1", prodId));
+                
+                cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
     }
 
     public List<Inventory> GetInventoryByStoreId(int storeId)
@@ -272,38 +346,6 @@ public class DBRepo : IRepo
         }
         return allInventories;
     }
-    public void AddProduct(Product productToAdd)
-    {
-        using(SqlConnection connection = new SqlConnection(_connectionString))
-        {
-            connection.Open();
-            string sqlCmd = "INSERT INTO Product (Name, Description, Price) VALUES (@p1, @p2, @p3)";
-            using(SqlCommand cmd = new SqlCommand(sqlCmd, connection))
-            {
-                cmd.Parameters.Add(new SqlParameter("@p1", productToAdd.ProductName));
-                cmd.Parameters.Add(new SqlParameter("@p2", productToAdd.Description));
-                cmd.Parameters.Add(new SqlParameter("@p3", productToAdd.Price));
-                cmd.ExecuteNonQuery();
-            }
-            connection.Close();
-            Log.Information("Product added {name}{description}{price}", productToAdd.ProductName,productToAdd.Description,productToAdd.Price);
-        }
-    }
-    public void RemoveProduct(int prodID)
-    {
-        using(SqlConnection connection = new SqlConnection(_connectionString))
-        {
-            connection.Open();
-            string sqlCmd = "DELETE FROM Product WHERE ProductID = @p1";
-            using(SqlCommand cmd = new SqlCommand(sqlCmd, connection))
-            {
-                cmd.Parameters.Add(new SqlParameter("@p1", prodID));
-                
-                cmd.ExecuteNonQuery();
-            }
-            connection.Close();
-        }
-    }
     /// <summary>
     /// Adds a new product to the database
     /// </summary>
@@ -324,31 +366,17 @@ public class DBRepo : IRepo
             connection.Close();
         }
     }
-    public void RestockEarthInventory(int prodID, int quantity)
+    public void RestockInventory(int prodId, int quantity, int storeId)
     {
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             connection.Open();
-            string sqlCmd = "UPDATE Inventory SET Quantity = @p0 WHERE ProductId = @p1";
+            string sqlCmd = "UPDATE Inventory SET Quantity = @p0 WHERE ProductId = @p1 AND WHERE StoreId = @p3";
             using(SqlCommand cmd = new SqlCommand(sqlCmd, connection))
             {
                 cmd.Parameters.AddWithValue("@p0", quantity);
-                cmd.Parameters.AddWithValue("@p1", prodID);
-                cmd.ExecuteNonQuery();
-            }
-            connection.Close();
-        }
-    }
-        public void RestockCentauriInventory(int prodID, int quantity)
-    {
-        using(SqlConnection connection = new SqlConnection(_connectionString))
-        {
-            connection.Open();
-            string sqlCmd = "UPDATE Inventory SET Quantity = @p0 WHERE ProductId = @p1";
-            using(SqlCommand cmd = new SqlCommand(sqlCmd, connection))
-            {
-                cmd.Parameters.AddWithValue("@p0", quantity);
-                cmd.Parameters.AddWithValue("@p1", prodID);
+                cmd.Parameters.AddWithValue("@p1", prodId);
+                cmd.Parameters.AddWithValue("@p3", storeId);
                 cmd.ExecuteNonQuery();
             }
             connection.Close();
