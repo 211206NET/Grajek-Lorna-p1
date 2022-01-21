@@ -17,13 +17,12 @@ public interface IBL
     List<Inventory> GetInventoryByStoreId(int storeId);
     void RestockEarthInventory(int prodID, int quantity);
     void RestockCentauriInventory(int prodID, int quantity);
-    int GetProductID(string productname);
     void AddProductToInventory(int prodID, Inventory inventToAdd);
     List<Inventory> GetAllInventories();
     //-------------------------------------------------------------------------------------------
     void AddLineItem(LineItem newLI, int orderID);
     void AddOrder(Order orderToAdd);
-    List<Order> GetAllOrders(int CID);
+    // List<Order> GetAllOrders(int CID);
     List<Order> GetAllEarthOrders();
     List<Order> GetAllCentauriOrders();
 

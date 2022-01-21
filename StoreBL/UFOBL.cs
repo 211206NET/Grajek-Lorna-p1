@@ -41,10 +41,10 @@ public class UFOBL : IBL
     {
         _dl.AddOrder(orderToAdd);
     }
-    public List<Order> GetAllOrders(int CID)
-    {
-        return _dl.GetAllOrders(CID);
-    }
+    // public List<Order> GetAllOrders(int CID)
+    // {
+    //     return _dl.GetAllOrders(CID);
+    // }
     public void AddProduct(Product productToAdd)
     {
         _dl.AddProduct(productToAdd);
@@ -68,10 +68,6 @@ public class UFOBL : IBL
     public void RestockCentauriInventory(int prodID, int quantity)
     {
         _dl.RestockCentauriInventory(prodID, quantity);
-    }
-    public int GetProductID(string productname)
-    {
-        return _dl.GetProductID(productname);
     }
     public void AddProductToInventory(int prodID, Inventory inventToAdd)
     {

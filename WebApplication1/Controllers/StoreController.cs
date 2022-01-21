@@ -49,17 +49,5 @@ namespace WebApplication1.Controllers
             _bl.AddStore(storetoAdd);
             return Created("Successfully Added!", storetoAdd);
         }
-
-        // PUT api/<StoreController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<StoreController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

@@ -24,9 +24,7 @@ public class DBRepo : IRepo
     public void AddCustomer(Customer newCustomer)
     {
         Random rand = new Random();
-        int custID = rand.Next(1, 1001);
-        Customer.CId = custID;
-        int CID = Customer.CId;
+        int CID = rand.Next(1, 1001);
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             connection.Open();
@@ -62,7 +60,6 @@ public class DBRepo : IRepo
     }
     public List<Customer> GetAllCustomers()
     {
-        int CID = Customer.CId;
         List<Customer> allCustomers = new List<Customer>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
@@ -75,7 +72,7 @@ public class DBRepo : IRepo
                     while (reader.Read())
                     {
                         Customer cust = new Customer();
-                        CID = reader.GetInt32(0);
+                        cust.customerID = reader.GetInt32(0);
                         cust.UserName = reader.GetString(1);
                         cust.Password = reader.GetString(2);
 
@@ -89,7 +86,6 @@ public class DBRepo : IRepo
     }
     public Customer GetCustomerById(int custId)
     {
-        int CID = Customer.CId;
         string query = "SELECT * FROM Customer WHERE CustomerId = @custId";
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
@@ -100,7 +96,7 @@ public class DBRepo : IRepo
         Customer customer = new Customer();
         if (reader.Read())
         {
-            CID = reader.GetInt32(0);
+            customer.customerID = reader.GetInt32(0);
             customer.UserName = reader.GetString(1);
             customer.Password = reader.GetString(2);
         }
@@ -251,29 +247,6 @@ public class DBRepo : IRepo
         }
         return allInventories;
     }
-    
-    public int GetProductID(string productname)
-    {
-        int prodID = 0;
-        Product currProd = new Product();
-        using SqlConnection connection = new SqlConnection(_connectionString);
-        {
-            connection.Open();
-            string queryTxt = $"SELECT ProductID FROM Product WHERE Name = '{productname}'";
-            using(SqlCommand cmd = new SqlCommand(queryTxt, connection))
-            {
-                using(SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        prodID = reader.GetInt32(0);
-                    }
-                }
-            }
-            connection.Close();
-        }
-        return prodID;
-    }
     public void AddProduct(Product productToAdd)
     {
         using(SqlConnection connection = new SqlConnection(_connectionString))
@@ -366,35 +339,35 @@ public class DBRepo : IRepo
     /// </summary>
     /// <param name="CID">The CustomerID of the current user</param>
     /// <returns>all orders placed by that user</returns>
-    public List<Order> GetAllOrders(int CID)
-    {
-        CID = Customer.CId;
-        List<Order> allOrders = new List<Order>();
-        using(SqlConnection connection = new SqlConnection(_connectionString))
-        {
-            connection.Open();
-            string queryTxt = $"SELECT * FROM Orders WHERE CustomerId = {CID}";
-            using(SqlCommand cmd = new SqlCommand(queryTxt, connection))
-            {
-                using(SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Order order = new Order();
-                        order.OrderNumber = reader.GetInt32(0);
-                        CID = reader.GetInt32(1);
-                        order.StoreId = reader.GetInt32(2);
-                        order.Total = reader.GetInt32(3);
-                        order.OrderDate = reader.GetDateTime(4);
+    // public List<Order> GetAllOrders(int CID)
+    // {
+    //     int cid = GetCustomerById(CID);
+    //     List<Order> allOrders = new List<Order>();
+    //     using(SqlConnection connection = new SqlConnection(_connectionString))
+    //     {
+    //         connection.Open();
+    //         string queryTxt = $"SELECT * FROM Orders WHERE CustomerId = {CID}";
+    //         using(SqlCommand cmd = new SqlCommand(queryTxt, connection))
+    //         {
+    //             using(SqlDataReader reader = cmd.ExecuteReader())
+    //             {
+    //                 while (reader.Read())
+    //                 {
+    //                     Order order = new Order();
+    //                     order.OrderNumber = reader.GetInt32(0);
+    //                     CID = reader.GetInt32(1);
+    //                     order.StoreId = reader.GetInt32(2);
+    //                     order.Total = reader.GetInt32(3);
+    //                     order.OrderDate = reader.GetDateTime(4);
 
-                        allOrders.Add(order);
-                    }
-                }
-            }
-            connection.Close();
-        }
-        return allOrders;
-    }
+    //                     allOrders.Add(order);
+    //                 }
+    //             }
+    //         }
+    //         connection.Close();
+    //     }
+    //     return allOrders;
+    // }
     /// <summary>
     /// Finds the randomly generated customerID for the currently logged in user
     /// </summary>

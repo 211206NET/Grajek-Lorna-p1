@@ -14,7 +14,6 @@ public interface IRepo
     Storefront GetStorefrontById(int storeID);
     //-----------------------------------------------------------------------------------
     List<Product> GetAllProductsByStoreId(int storeId);
-    int GetProductID(string productname);
     void AddProduct(Product productToAdd);
     void RemoveProduct(int prodID);
     void RestockCentauriInventory(int prodID, int quantity);
@@ -25,7 +24,7 @@ public interface IRepo
     //---------------------------------------------------------------------------------
     void AddLineItem(LineItem newLI, int orderID);
     void AddOrder(Order orderToAdd);
-    List<Order> GetAllOrders(int CID);
+    // List<Order> GetAllOrders(int CID);
     List<Order> GetAllEarthOrders();
     List<Order> GetAllCentauriOrders();
 }
