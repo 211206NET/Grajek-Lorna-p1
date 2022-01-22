@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MmJu1ZgdLfV92v4lwAwCHT98Mew704E/XERDn4NVEAKp5IkGsqHxPZynkfMRwbSPORXBZdzPa6wggmu7pF9zjQ==",
+  "dgSpecHash": "ftMbTFC2uodsHqRk3t9eIv61WLh/blEPsawCt8eY/C/+4fJAcgCbJcD1xKpX5yPzqeyunZDIjEGgBt8P07zLXw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreBL\\StoreBL.csproj",
+  "projectFilePath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreBL\\StoreBL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lorna\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\lorna\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

@@ -27,6 +27,6 @@ public interface IRepo
     void AddLineItem(LineItem newLI, int orderID);
     void AddOrder(Order orderToAdd);
     // List<Order> GetAllOrders(int CID);
-    List<Order> GetAllEarthOrders();
-    List<Order> GetAllCentauriOrders();
+    List<Order> GetAllStoreOrders(int storeId);
+    List<Order> GetAllCustomerOrders(int custId);
 }

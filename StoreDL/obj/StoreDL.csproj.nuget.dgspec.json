@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreDL\\StoreDL.csproj": {}
+    "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreDL\\StoreDL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreDL\\StoreDL.csproj": {
+    "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreDL\\StoreDL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreDL\\StoreDL.csproj",
+        "projectUniqueName": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreDL\\StoreDL.csproj",
         "projectName": "StoreDL",
-        "projectPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreDL\\StoreDL.csproj",
+        "projectPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreDL\\StoreDL.csproj",
         "packagesPath": "C:\\Users\\lorna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreDL\\obj\\",
+        "outputPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreDL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lorna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreModels\\StoreModels.csproj": {
-                "projectPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreModels\\StoreModels.csproj"
+              "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreModels\\StoreModels.csproj": {
+                "projectPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreModels\\StoreModels.csproj"
               }
             }
           }
@@ -80,14 +80,14 @@
         }
       }
     },
-    "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreModels\\StoreModels.csproj": {
+    "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreModels\\StoreModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreModels\\StoreModels.csproj",
+        "projectUniqueName": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreModels\\StoreModels.csproj",
         "projectName": "StoreModels",
-        "projectPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreModels\\StoreModels.csproj",
+        "projectPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreModels\\StoreModels.csproj",
         "packagesPath": "C:\\Users\\lorna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreModels\\obj\\",
+        "outputPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreModels\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lorna\\AppData\\Roaming\\NuGet\\NuGet.Config",
