@@ -12,7 +12,6 @@ namespace WebApplication1.Controllers
     public class StoreController : ControllerBase 
     {
         private IBL _bl;
-        private IMemoryCache _memoryCache;
         public StoreController(IBL bl)
         {
             _bl = bl;

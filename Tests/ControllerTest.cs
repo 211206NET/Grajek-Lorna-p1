@@ -37,4 +37,22 @@ public class ControllerTest
         Assert.NotNull(result);
         Assert.IsType<List<Storefront>>(result);
     }
+
+    [Fact]
+    public void StoreControllerGetShouldGetStoreFrontById()
+    {
+        var mockBL = new Mock<IBL>();
+        int i = 1;
+        mockBL.Setup(x => x.GetStorefrontById(i)).Returns(
+            new Storefront
+            {
+                 StoreID = 1,
+                 Name =  "Test",
+                 Address = "Test"
+            }
+        );
+        var storeCtrller = new StoreController(mockBL.Object);
+        var result = storeCtrller.Get(1);
+        Assert.NotNull(result);
+    }
 }
