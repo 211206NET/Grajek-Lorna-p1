@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models;
 using StoreBL;
+using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -38,6 +39,7 @@ namespace WebApplication1.Controllers
             if (productToAdd.ProductName != null)
             {
                 _bl.AddProduct(productToAdd);
+                Serilog.Log.Information("A new product was added");
                 return Created($"{productToAdd.ProductName} has been added to the product list!", productToAdd);
             }
             else

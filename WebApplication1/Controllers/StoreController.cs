@@ -2,6 +2,7 @@
 using Models;
 using StoreBL;
 using Microsoft.Extensions.Caching.Memory;
+using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -45,6 +46,7 @@ namespace WebApplication1.Controllers
         public ActionResult Post([FromBody] Storefront storetoAdd)
         {
             _bl.AddStore(storetoAdd);
+            Serilog.Log.Information("A new store was added");
             return Created("Successfully Added!", storetoAdd);
         }
     }

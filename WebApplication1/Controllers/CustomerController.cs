@@ -18,7 +18,7 @@ namespace WebApplication1.Controllers
         }
         // GET: api/<CustomerController>
         [HttpGet]
-        public List<Customer> Get(string username)
+        public List<Customer> Get()
         {
             return _bl.GetAllCustomers();
         }
@@ -42,6 +42,7 @@ namespace WebApplication1.Controllers
         public List<Customer> SearchCustomer(string username, string password)
         {
             return _bl.SearchCustomer(username, password);
+            Serilog.Log.Information("A user logged in");
         }
 
         // POST api/<CustomerController>

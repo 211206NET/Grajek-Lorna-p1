@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models;
 using StoreBL;
+using CustomExceptions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,34 +18,45 @@ namespace WebApplication1.Controllers
         }
         // GET: api/<LineItemController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public void Get()
         {
-            return new string[] { "value1", "value2" };
-        }
 
-        // GET api/<LineItemController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
         }
 
         // POST api/<LineItemController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void PostNewLineItem(int prodId, int quantity, int orderId, int storeId, int customerId)
         {
-        }
+            DateTime date = DateTime.Now;
+            LineItem lineitem = new LineItem
+            {
+                OrderId = orderId,
+                Quantity = quantity,
+                ProductID = prodId
+            };
+            Order order = new Order
+            {
+                OrderNumber = orderId,
+                StoreId = storeId,
+                OrderDate = date,
+                CustomerId = customerId
+            };
+            List<LineItem> cart = new List<LineItem>();
+            cart.Add(lineitem);
 
-        // PUT api/<LineItemController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<LineItemController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            if (prodId != 0)
+            {
+                _bl.AddOrder(order);
+                foreach (LineItem item in cart)
+                {
+                    _bl.AddLineItem(item, orderId);
+                }
+            }
+            else
+            {
+                throw new InputInvalidException("Please choose a valid product");
+            }
         }
     }
 }
+

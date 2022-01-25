@@ -31,7 +31,7 @@ public class Customer
             }
             else if(!pattern.IsMatch(value))
             {
-                throw new InputInvalidException("Restaurant name can only have alphanumeric characters, white space, !, ?, and '.");
+                throw new InputInvalidException("Username can only have alphanumeric characters, white space, !, ?, and '.");
             }
             else
             {

@@ -100,6 +100,6 @@ public class UFOBL : IBL
 
     public List<Order> GetAllCustomerOrders(int custId)
     {
-        return GetAllCustomerOrders(custId);
+        return _dl.GetAllCustomerOrders(custId);
     }
 }
