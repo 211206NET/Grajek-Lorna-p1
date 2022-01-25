@@ -29,3 +29,11 @@
 2022-01-24 22:59:24.470 -08:00 [INF] LineItem added 19005
 2022-01-25 07:42:38.644 -08:00 [INF] Product added testtest10
 2022-01-25 07:42:38.656 -08:00 [INF] A new product was added
+2022-01-25 08:57:02.856 -08:00 [INF] Order added 831310"2022-01-25T08:57:02.2631478-08:00"
+2022-01-25 08:57:02.951 -08:00 [INF] LineItem added 182
+2022-01-25 09:36:15.073 -08:00 [INF] A new store was added
+2022-01-25 09:38:23.660 -08:00 [INF] Order added 1031310"2022-01-25T09:38:23.3566868-08:00"
+2022-01-25 09:38:23.966 -08:00 [INF] LineItem added 1102
+2022-01-25 09:40:18.767 -08:00 [INF] Product added Covid Maskdont come to earth0
+2022-01-25 09:40:18.767 -08:00 [INF] A new product was added
+2022-01-25 09:50:46.678 -08:00 [INF] A new customer was added
