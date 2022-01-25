@@ -17,14 +17,14 @@ namespace WebApplication1.Controllers
         }
         // GET: api/<ProductController>
         [HttpGet]
-        public List<Product> Get()
+        public List<Product> GetAllProducts()
         {
             return _bl.GetAllProducts();
         }
 
         // GET api/<ProductController>/5
         [HttpGet("{name}")]
-        public int Get(string name)
+        public int GetProductId(string name)
         {
             int id = _bl.GetProductIdByName(name);
             return id;

@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
         }
         // GET: api/<CustomerController>
         [HttpGet]
-        public List<Customer> Get()
+        public List<Customer> Get(string username)
         {
             return _bl.GetAllCustomers();
         }

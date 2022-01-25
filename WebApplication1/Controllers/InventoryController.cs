@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
         }
         // GET: api/<InventoryController>
         [HttpGet]
-        public List<Inventory> Get()
+        public List<Inventory> GetAllInventories()
         {
             return _bl.GetAllInventories();
         }
@@ -26,7 +26,7 @@ namespace WebApplication1.Controllers
         // GET api/<InventoryController>/5
         // Gets a list of the full inventory for a store based off of store id. Uses a zip method to join product and inventory tables
         [HttpGet("{id}")]
-        public ActionResult Get(int id)
+        public ActionResult GetInventoryByStore(int id)
         {
             List<Inventory> currentInventory = _bl.GetInventoryByStoreId(id);
             List<Product> currentProducts = _bl.GetAllProductsByStoreId(id);
