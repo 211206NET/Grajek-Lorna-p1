@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreModels\\StoreModels.csproj",
+      "projectUniqueName": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreModels\\StoreModels.csproj",
       "projectName": "StoreModels",
-      "projectPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreModels\\StoreModels.csproj",
+      "projectPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreModels\\StoreModels.csproj",
       "packagesPath": "C:\\Users\\lorna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1-NO\\StoreModels\\obj\\",
+      "outputPath": "C:\\Users\\lorna\\Documents\\GitHub\\Grajek-Lorna-p1\\StoreModels\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lorna\\AppData\\Roaming\\NuGet\\NuGet.Config",
