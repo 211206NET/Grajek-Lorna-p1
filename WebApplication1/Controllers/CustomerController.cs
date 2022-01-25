@@ -2,6 +2,7 @@
 using StoreBL;
 using Models;
 using Serilog;
+using CustomExceptions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -41,7 +42,18 @@ namespace WebApplication1.Controllers
         [HttpGet("search/{username},{password}")]
         public List<Customer> SearchCustomer(string username, string password)
         {
-            return _bl.SearchCustomer(username, password);
+
+            List<Customer> found = _bl.SearchCustomer(username, password);
+            bool ifUsername = found.Exists(x => x.UserName == username);
+            bool ifPassword = found.Exists(x => x.Password == password);
+            if (ifUsername && ifPassword)
+            {
+                return _bl.SearchCustomer(username, password);
+            }
+            else
+            {
+                throw new InputInvalidException("That username or password does not exist");
+            }
             Serilog.Log.Information("A user logged in");
         }
 

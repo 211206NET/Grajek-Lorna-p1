@@ -20,7 +20,17 @@
       "ProjectGuid": "4e69fb14-21d1-4a50-a2e1-d9a2a0ec9c27",
       "DisplayName": "StoreBL",
       "ColorIndex": 3
+    },
+    "8d548d4e-1562-42ad-9fbd-89eacabff06b": {
+      "ProjectGuid": "8d548d4e-1562-42ad-9fbd-89eacabff06b",
+      "DisplayName": "Tests",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 5
 }
