@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoreBL;
 using Models;
+using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -50,6 +51,7 @@ namespace WebApplication1.Controllers
             if(customerToAdd != null)
             {
                 _bl.AddCustomer(customerToAdd);
+                Serilog.Log.Information("A new customer was added");
                 return Created($"Thank you {customerToAdd} for signing up!", customerToAdd);
             }
             else

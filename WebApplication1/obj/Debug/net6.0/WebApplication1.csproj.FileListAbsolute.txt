@@ -199,3 +199,4 @@ C:\Users\lorna\Documents\GitHub\Grajek-Lorna-p1\WebApplication1\obj\Debug\net6.0
 C:\Users\lorna\Documents\GitHub\Grajek-Lorna-p1\WebApplication1\obj\Debug\net6.0\ref\WebApplication1.dll
 C:\Users\lorna\Documents\GitHub\Grajek-Lorna-p1\WebApplication1\obj\Debug\net6.0\WebApplication1.pdb
 C:\Users\lorna\Documents\GitHub\Grajek-Lorna-p1\WebApplication1\obj\Debug\net6.0\WebApplication1.genruntimeconfig.cache
+C:\Users\lorna\Documents\GitHub\Grajek-Lorna-p1\WebApplication1\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
