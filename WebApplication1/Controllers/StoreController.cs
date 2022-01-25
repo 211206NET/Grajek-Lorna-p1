@@ -13,10 +13,9 @@ namespace WebApplication1.Controllers
     {
         private IBL _bl;
         private IMemoryCache _memoryCache;
-        public StoreController(IBL bl, IMemoryCache memoryCache)
+        public StoreController(IBL bl)
         {
             _bl = bl;
-            _memoryCache = memoryCache;
         }
         // GET: api/<StoreController>
         [HttpGet]
